@@ -2,30 +2,26 @@
 int main(){
     freopen("/Users/ching_shing/Documents/SJTU/ky/PAT顶级/PAT-GitHub/2020.3-PAT/TestPAT/TestPAT/1065.in","r", stdin);
     int n;
-    string a;
-    
+    long long a,b,c,sum;
     cin>>n;
     for(int i=0;i<n;i++){
-        long long b=0,c=0,d=0;
-        cin>>a;
-        if(a=="9223372036854775808"){
-            b=9223372036854775807;
-            d-=1;
-        }else b=stoll(a);
-        cin>>a;
-        if(a=="9223372036854775808"){
-            c=9223372036854775807;
-            d-=1;
-        }else c=stoll(a);
-        cin>>a;
-        if(a=="9223372036854775808"){
-            d+=9223372036854775807;
-            b-=1;
-        }else d+=stoll(a);
-        if(b>0&&c>0&&d<0)printf("Case #%d: %s\n",i+1,"false");
-        else if(b<0&&c<0&&d>0)printf("Case #%d: %s\n",i+1,"false");
-        else printf("Case #%d: %s\n",i+1,b+c>d?"true":"false");
-        
+        cin>>a>>b>>c;
+        sum=a+b;
+        if(a>0&&b>0&&sum<0)printf("Case #%d: true\n",i+1);
+        else if(a<0&&b<0&&sum>=0)printf("Case #%d: false\n",i+1);
+        else {
+            printf("Case #%d: %s\n",i+1,sum>c?"true":"false");
+        }
+//        if(a > 0 && b > 0 && sum < 0) {
+//            printf("Case #%d: true\n", i + 1);
+//        } else if(a < 0 && b < 0 && sum >= 0){
+//            printf("Case #%d: false\n", i + 1);
+//        } else if(sum > c) {
+//            printf("Case #%d: true\n", i + 1);
+//        } else {
+//            printf("Case #%d: false\n", i + 1);
+//        }
+//        cout<<sum<<" "<<a<<" "<<b<<endl;
     }
     
     return 0;

@@ -6,6 +6,10 @@ int main(){
     cin>>s;
     r=s;
     reverse(r.begin(), r.end());
+    if(r==s){
+        cout<<s<<" is a palindromic number.";
+        return 0;
+    }
     bool f=false;
     for(int i=0;i<10;i++){
         p=stoll(s)+stoll(r);
@@ -14,13 +18,13 @@ int main(){
         r=s;
         reverse(r.begin(), r.end());
         if(r==s){
-            cout<<p<<" is a palindromic number."<<endl;
+            cout<<p<<" is a palindromic number.";
             f=true;
             break;
         }
     }
     if(!f){
-        cout<<"Not found in 10 iterations."<<endl;
+        cout<<"Not found in 10 iterations.";
     }
     return 0;
 }

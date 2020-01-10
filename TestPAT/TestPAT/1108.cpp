@@ -21,16 +21,18 @@ int main(){
         if(dot>1){
             f=false;
         }
-        if(f && (stof(s)>1000.0 || stof(s)<-1000.0)){
-            f=false;
-        }
+        
         if(f){
             int pos=s.find('.');
+            int zero=s.find_last_not_of('0');
             if(pos!=-1){
-                if(len-pos>3){
+                if(zero-pos>2){
                     f=false;
                 }
             }
+        }
+        if(f && (stof(s)>1000.0 || stof(s)<-1000.0)){
+            f=false;
         }
         if(!f){
             cout<<"ERROR: "<<s<<" is not a legal number"<<endl;

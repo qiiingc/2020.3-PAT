@@ -28,8 +28,8 @@ int main(){
         if(f){
             int pos=s.find('.');
             if(pos!=-1){
-                //int zero=s.find_last_not_of('0');
-                int zero=s.size()-1;
+                int zero=s.find_last_not_of('0');
+                //int zero=s.size()-1;
                 if(zero-pos>2){
                     f=false;
                 }
@@ -48,7 +48,7 @@ int main(){
     if(num==0){
         cout<<"The average of 0 numbers is Undefined";
     }else if(num==1){
-        printf("The average of 1 numbers is %.02lf",total);
+        printf("The average of 1 number is %.02lf",total);
     }else{
         printf("The average of %d numbers is %.02lf",num,(double)total/num);
     }

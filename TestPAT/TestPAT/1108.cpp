@@ -11,21 +11,25 @@ int main(){
         int dot=0;
         int len=s.size();
         for(int j=0;j<len;j++){
-            if(s[j]!='-' && s[j]!='.' && !isdigit(s[j])){
+            if(s[j]=='-'&&j>0){
+                f=false;
+            }
+            if(s[j]!='-'&& s[j]!='.' && !isdigit(s[j])){
                 f=false;
             }
             if(s[j]=='.'){
                 dot++;
             }
         }
-        if(dot>1){
+        if(f && dot>1){
             f=false;
         }
         
         if(f){
             int pos=s.find('.');
-            int zero=s.find_last_not_of('0');
             if(pos!=-1){
+                //int zero=s.find_last_not_of('0');
+                int zero=s.size()-1;
                 if(zero-pos>2){
                     f=false;
                 }
@@ -44,9 +48,9 @@ int main(){
     if(num==0){
         cout<<"The average of 0 numbers is Undefined";
     }else if(num==1){
-        cout<<"The average of 1 numbers is "<<total;
+        printf("The average of 1 numbers is %.02lf",total);
     }else{
-        printf("The average of %d numbers is %.2f",num,(double)total/num);
+        printf("The average of %d numbers is %.02lf",num,(double)total/num);
     }
     return 0;
 }

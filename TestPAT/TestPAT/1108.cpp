@@ -40,11 +40,11 @@ int main(){
         }
     }
     if(num==0){
-        cout<<"The average of 0 number is Undefined";
+        cout<<"The average of 0 numbers is Undefined";
     }else if(num==1){
-        cout<<"The average of 1 number is "<<total;
+        cout<<"The average of 1 numbers is "<<total;
     }else{
-        printf("The average of %d number is %.2f",num,(double)total/num);
+        printf("The average of %d numbers is %.2f",num,(double)total/num);
     }
     return 0;
 }

@@ -23,8 +23,8 @@ int main(){
         if(isupper(ch)){
             word.push_back(ch-'A');
         }else if(!word.empty()||ch!='\n'){
-            if(f)printf("\n");
-            int len=word.size()*6;
+            if(f)printf("\n\n");
+            int len=word.size()*6-1;
             char w[7][len];
             for(int i=0;i<7;i++){
                 int k=0;
@@ -37,11 +37,11 @@ int main(){
                 }
             }
             for(int i=0;i<7;i++){
+                if(i!=0)printf("\n");
                 for(int j=0;j<len;j++){
                     if(w[i][j]-' '!=0)printf("%c",w[i][j]);
                     else printf(" ");
                 }
-                printf("\n");
             }
             f=true;
             word.clear();

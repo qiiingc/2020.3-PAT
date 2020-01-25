@@ -22,7 +22,7 @@ int main(){
     while(~scanf("%c",&ch)){
         if(isupper(ch)){
             word.push_back(ch-'A');
-        }else if(!word.empty()||ch!='\n'){
+        }else if(!word.empty()){
             if(f)printf("\n\n");
             int len=word.size()*6-1;
             char w[7][len];
@@ -43,6 +43,7 @@ int main(){
                     else printf(" ");
                 }
             }
+            //if(ch=='\n')return 0;//写不写都行，这里没测试点
             f=true;
             word.clear();
         }

@@ -1,7 +1,7 @@
 #include "0.h"
 int n,m,k;
 int main(){
-freopen("/Users/ching_shing/Documents/SJTU/ky/PAT顶级/PAT-GitHub/2020.3-PAT/TestPAT/TestPAT/1167.in","r", stdin);
+freopen("/Users/ching_shing/Documents/SJTU/ky/PAT顶级/PAT-GitHub/2020.3-PAT/TestPAT/TestPAT/1166.in","r", stdin);
     scanf("%d %d\n",&n,&m);
     int G[n+5][n+5];
     vector<vector<int>> va(n+5);
@@ -39,20 +39,20 @@ freopen("/Users/ching_shing/Documents/SJTU/ky/PAT顶级/PAT-GitHub/2020.3-PAT/Te
             printf("Area %d needs help.\n",i+1);
         }else{
             int minn=n+1;
-            for(int j=0;j<l;j++){
-                for(int k=1;k<=n;k++){
-                    bool f3=true;
-                    for(auto it:s){
-                        if(G[k][it]!=1){
-                            f3=false;
-                        }
-                    }
-                    if(f3 && s.find(k)==s.end() && k<minn){
-                        minn=k;
-                        f2=false;
+            for(int k=1;k<=n;k++){
+                bool f3=true;
+                for(auto it:s){
+                    if(G[k][it]!=1){
+                        f3=false;
                     }
                 }
+                if(f3 && s.find(k)==s.end() && k<minn){
+                    minn=k;
+                    f2=false;
+                    continue;
+                }
             }
+
             if(f2){
                 printf("Area %d is OK.\n",i+1);
             }else{
@@ -61,8 +61,6 @@ freopen("/Users/ching_shing/Documents/SJTU/ky/PAT顶级/PAT-GitHub/2020.3-PAT/Te
         }
 
     }
-
-
     return 0;
 }
 

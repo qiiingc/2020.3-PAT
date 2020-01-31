@@ -11,8 +11,7 @@ bool isPrime(int n){
     return true;
 }
 int sum(int n){
-    if(n==0)return 0;
-    return sum(n/10)+n%10;
+    return n==0?0:sum(n/10)+n%10;
 }
 struct node{
     int id,data;
@@ -22,23 +21,25 @@ bool cmp(node a,node b){
 }
 int main(){
 freopen("/Users/ching_shing/Documents/SJTU/ky/PAT顶级/PAT-GitHub/2020.3-PAT/TestPAT/TestPAT/1160.in","r", stdin);
-    int n=6,k=4,m=45;
-    //scanf("%d\n",&n);
+    int n,k,m;
+    scanf("%d\n",&n);
     for(int j=1;j<=n;j++){
+        scanf("%d %d\n",&k,&m);
         printf("Case %d\n",j);
-        int a=pow(10,k-1),b=pow(10,k);
+        int a=pow(10,k-3),b=pow(10,k-2);
         vector<node> v;
         for(int p=a;p<b;p++){
-            if(sum(p)==m){
-                int c=sum(p+1);
+            int d=p*100+99;
+            if(sum(d)==m){
+                int c=sum(d+1);
                 if(isPrime(gcd(m, c))){
-                    v.push_back({c,p});
+                    v.push_back({c,d});
                 }
             }
         }
         sort(v.begin(), v.end(), cmp);
         for(int q=0;q<v.size();q++){
-            if(v[q].data%100!=99)printf("%d %d\n",v[q].id,v[q].data);
+            printf("%d %d\n",v[q].id,v[q].data);
         }
         if(v.size()==0){
             printf("No Solution\n");

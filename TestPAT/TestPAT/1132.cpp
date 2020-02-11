@@ -11,7 +11,8 @@ freopen("/Users/ching_shing/Documents/SJTU/ky/PAT顶级/PAT-GitHub/2020.3-PAT/Te
         a=stoll(s.substr(0,l/2));
         b=stoll(s.substr(l/2,l/2));
         c=stoll(s);
-        if(c%(a*b)==0)cout<<"Yes"<<endl;
+        if(a==0||b==0)cout<<"No"<<endl;
+        else if(c%(a*b)==0)cout<<"Yes"<<endl;
         else cout<<"No"<<endl;
     }
     return 0;

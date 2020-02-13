@@ -1,33 +1,34 @@
 #include "0.h"
-int n,m,k,a,b;
-map<int, set<int>> mp;
+int n,m,k,u,w;
+map<int, vector<int>> mp;
 int main(){
     freopen("/Users/ching_shing/Documents/SJTU/ky/PAT顶级/PAT-GitHub/2020.3-PAT/TestPAT/TestPAT/1149.in","r", stdin);
     cin>>n>>m;
     for(int i=0;i<n;i++){
-        cin>>a>>b;
-        mp[a].insert(b);
-        mp[b].insert(a);
+        scanf("%d %d",&u,&w);
+        mp[u].push_back(w);
+        mp[w].push_back(u);
     }
-    cin>>k;
-    for(int i=0;i<m;i++){
-        set<int> s;
-        bool f=true;
-        for(int j=0;j<k;j++){
-            cin>>a;
-            if(!s.empty()){
-                for(auto it:s){
-                    if(mp[a].find(it)!=mp[a].end()){
-                        cout<<"No"<<endl;
-                        f=false;
-                        break;
-                    }
-                }
-                if(!f)break;
-            }
-            s.insert(a);
+    vector<int> v,a(100000);
+    while(m--){
+        v.clear();
+        a.clear();
+        cin>>k;
+        for(int i=0;i<k;i++){
+            scanf("%d",&u);
+            v.push_back(u);
+            a[u]=1;
         }
-        if(f)cout<<"Yes"<<endl;
+        bool f=true;
+        for(auto i:v){
+            for(auto j:mp[i]){
+                if(a[j]==1){
+                    f=false;
+                    break;
+                }
+            }
+        }
+        printf("%s\n",f?"Yes":"No");
     }
     return 0;
 }

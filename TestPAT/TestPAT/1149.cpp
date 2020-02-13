@@ -12,21 +12,25 @@ int main(){
     vector<int> v,a(100000);
     while(m--){
         v.clear();
-        a.clear();
+        fill(a.begin(),a.end(),0);
         cin>>k;
         for(int i=0;i<k;i++){
             scanf("%d",&u);
             v.push_back(u);
-            a[u]=1;
+            a[u]=2;
         }
         bool f=true;
         for(auto i:v){
+            cout<<i<<" ";
             for(auto j:mp[i]){
-                if(a[j]==1){
+                cout<<j<<" ";
+                if(a[j]==2){
+                    cout<<"< ";
                     f=false;
                     break;
                 }
             }
+            cout<<endl;
         }
         printf("%s\n",f?"Yes":"No");
     }

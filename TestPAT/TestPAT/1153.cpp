@@ -18,8 +18,7 @@ int main(){
     }
     for(int i=1;i<=m;i++){
         cin>>k>>s;
-        printf("Case %d: ",i);
-        cout<<k<<" "<<s<<endl;
+        printf("Case %d: %d %s\n",i,k,s.c_str());
         map<string,int>::iterator it;
         if(k==1){
             vector<node> v;
@@ -30,12 +29,12 @@ int main(){
                 }
             }
             if(v.size()==0){
-                cout<<"NA"<<endl;
+                printf("NA\n");
                 continue;
             }
             sort(v.begin(),v.end(),cmp);
             for(auto j:v){
-                cout<<j.id<<" "<<j.score<<endl;
+                printf("%s %d\n",j.id.c_str(),j.score);
             }
         }else if(k==2){
             int num=0,total=0;
@@ -47,10 +46,10 @@ int main(){
                 }
             }
             if(num==0){
-                cout<<"NA"<<endl;
+                printf("NA\n");
                 continue;
             }
-            cout<<num<<" "<<total<<endl;
+            printf("%d %d\n",num,total);
         }else if(k==3){
             vector<node> v;
             for(it=mp.begin();it!=mp.end();it++){
@@ -67,15 +66,15 @@ int main(){
                 }
             }
             if(v.size()==0){
-                cout<<"NA"<<endl;
+                printf("NA\n");
                 continue;
             }
             sort(v.begin(),v.end(),cmp);
             for(auto j:v){
-                cout<<j.id<<" "<<j.score<<endl;
+                printf("%s %d\n",j.id.c_str(),j.score);
             }
         }else {
-            cout<<"NA"<<endl;
+            printf("NA\n");
         }
     }
     return 0;

@@ -32,7 +32,7 @@ int getNum(tree *root){
 }
 bool judge2(tree *root){
     if(root==NULL)return true;
-    if(getNum(root->l)!=getNum(root->l))return false;
+    if(getNum(root->l)!=getNum(root->r))return false;
     return judge2(root->l) && judge2(root->r);
 }
 int main(){
